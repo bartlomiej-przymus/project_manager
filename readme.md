@@ -1,3 +1,5 @@
-#PROJECT MANAGER
+PROJECT MANAGER
+===============
 
-This is my first project after Laravel tutorial series.
+Is a web tool that helps users in management of their projects.
+This is my first project using Laravel afer completion of tutorial series.
