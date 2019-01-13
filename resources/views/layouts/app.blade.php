@@ -49,11 +49,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <div class="column is-4 is-offset-4">
-                    <div class="box has-text-centered">
-                        @yield('content')
-                    </div>
-                </div>
+                @yield('content')
             </div>
         </div>
     </section>

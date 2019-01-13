@@ -10,12 +10,13 @@
                     Let's make projects great again:)
                 </h2>
                 <div class="section">
-                <p>Please Sign In to view your projects</p>
-                <br>
                     @if (Route::has('login'))
                             @auth
-                                <a href="{{ url('/home') }}">Home</a>
+                            <p>You are alrady logged in!</p>
+                                <a class="button is-primary" href="{{ url('/home') }}">Back to Home</a>
                             @else
+                                <p>Please Sign In to view your projects</p>
+                                    <br>
                                 <a class="button is-success" href="{{ route('login') }}">Login</a>
                                 @if (Route::has('register'))
                                     <a class="button" href="{{ route('register') }}">Register</a>
