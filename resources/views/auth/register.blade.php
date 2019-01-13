@@ -7,7 +7,7 @@
     <div class="field">
         <div class="control">
             <label for="name" class="label">Name</label>
-            <input id="name" type="text" class="input {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+            <input id="name" type="text" class="input {{ $errors->has('name') ? 'is-danger' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
                 @if ($errors->has('name'))
                     <p class="help is-danger">
                         <strong>{{ $errors->first('name') }}</strong>
@@ -18,7 +18,7 @@
     <div class="field">
         <div class="control">
             <label for="email" class="label">E-Mail Address</label>
-            <input id="email" type="email" class="input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+            <input id="email" type="email" class="input {{ $errors->has('email') ? 'is-danger' : '' }}" name="email" value="{{ old('email') }}" required>
                 @if ($errors->has('email'))
                     <p class="help is-danger">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -29,7 +29,7 @@
     <div class="field">
         <div class="control">
             <label for="password" class="label">Password</label>
-            <input id="password" type="password" class="input {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+            <input id="password" type="password" class="input {{ $errors->has('password') ? 'is-danger' : '' }}" name="password" required>
                 @if ($errors->has('password'))
                     <p class="help is-danger">
                         <strong>{{ $errors->first('password') }}</strong>
