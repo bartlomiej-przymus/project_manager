@@ -7,14 +7,6 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
-    protected function validateProject()
-    {
-        return request()->validate() {[
-            'title' => ['required', 'min:3'],
-            'description' => ['required']
-        ]};
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +15,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = auth()->user()->projects;
-        return view('projects.show', compact('projects'));
+        return view('/home', compact('projects'));
     }
 
     /**
@@ -44,7 +36,7 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = validateProject();
+        $attributes = $this->validateProject();
         $attributes['owner_id'] = auth()->id();
         $project = Project::create($attributes);
         return redirect('/home');
@@ -58,7 +50,7 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
-        return view('show.projects', compact('project'));
+        return view('projects.show', compact('project'));
     }
 
     /**
@@ -95,5 +87,13 @@ class ProjectsController extends Controller
     {
         $project->delete();
         return redirect('/home');
+    }
+
+    protected function validateProject()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required']
+        ]);
     }
 }
