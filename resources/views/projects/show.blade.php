@@ -8,10 +8,6 @@
     <div class="card-content">
         <h6 class="is-small has-text-grey">Description</h6>
         <div class="content box">{{$project->description}}</div>
-            <p>
-                
-            </p>
-        
 {{-- <h3 class="subtitle">Tasks</h3>
 @if ($project->tasks->count())
 <div class="box">

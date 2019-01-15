@@ -15,7 +15,7 @@
                             <label for="title" class="label">Title</label>
                             <div class="control">
                             <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title" placeholder="Title" value="{{ old('title')}}" required>
-                            </div>
+                            </div>                                                                            {{-- function old displays old data when form is failing validation --}}
                         </div>
                         <div class="field">
                             <label for="descriptipon" class="label">Description</label>

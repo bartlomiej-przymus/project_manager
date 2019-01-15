@@ -10,7 +10,7 @@
     <div class="card-content">
         <div class="content">
             <ul>
-            @if (count($projects) > 0)
+            @if ($projects->count() > 0)
                 @foreach ($projects as $project)
                     <li>
                         <h4><a href="/projects/{{$project->id}}" class="link">
