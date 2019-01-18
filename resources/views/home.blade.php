@@ -25,7 +25,9 @@
         </div>
     </div>
     <footer class="card-footer">
-        <a href="/projects/create" class="card-footer-item is-primary">Create New Project</a>
+        <div class="card-footer-item">
+            <a href="/projects/create" class="button is-medium some-space is-success">Create New Project</a>
+        </div>
     </footer>
 </div>
 @endsection

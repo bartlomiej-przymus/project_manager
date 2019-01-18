@@ -15,14 +15,14 @@
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand">
-                          <a class="navbar-item" href="{{ url('/') }}">
-                              Project Manager App
-                          </a>
-                        <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
+                        <a class="navbar-item" href="{{ url('/') }}">
+                            Project Manager App
+                        </a>
+                        <a role="button" class="navbar-burger" data-target="navbarMenuHeroB">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                        </a>
                     </div>
                     <div id="navbarMenuHeroB" class="navbar-menu">
                         <div class="navbar-end">
@@ -55,5 +55,18 @@
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        // Check for click events on the navbar burger icon
+        $(".navbar-burger").click(function() {
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+            });
+        });
+    </script>
 </body>
 </html>

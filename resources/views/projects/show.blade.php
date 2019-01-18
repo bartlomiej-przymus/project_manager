@@ -8,8 +8,8 @@
     <div class="card-content">
         <h6 class="is-small has-text-grey">Description</h6>
         <div class="content box">{{$project->description}}</div>
-{{-- <h3 class="subtitle">Tasks</h3>
-@if ($project->tasks->count())
+        <h6 class="is-small has-text-grey">Tasks</h6>
+{{-- @if ($project->tasks->count())
 <div class="box">
     @foreach ($project->tasks as $task)
         <form action="/completed-tasks/{{$task->id}}" method="POST">
@@ -47,15 +47,16 @@
         @method('DELETE')
         <div class="field">
             <div class="control">
-                <button type="submit" class="button is-danger">Clear Tasks</button>
+                <button type="submit" class="button is-warning">Clear Tasks</button>
             </div>
         </div>
     </form> --}}
     </div>
     <footer class="card-footer">
-        {{-- <a href="#" class="card-footer-item has-success-text">Save Project</a> --}}
-        <a class="card-footer-item" href="/projects/{{ $project->id }}/edit">Edit Project</a>
-        <a class="card-footer-item" href="/home">Back to Dashboard</a>
+        <div class="card-footer-item">
+            <a class="button is-medium some-space is-info" href="/projects/{{ $project->id }}/edit">Edit Project</a>
+            <a class="button is-medium some-space is-warning" href="/home">Cancel</a>
+        </div>
     </footer>
 </div>
 @endsection

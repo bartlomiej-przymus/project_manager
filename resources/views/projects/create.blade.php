@@ -23,17 +23,16 @@
                                 <textarea name="description" class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}" required></textarea>
                             </div>
                         </div>
-                        <div class="field">
-                            <div class="control">
-                                <button type="submit" class="button is-link">Save Project</button>
-                            </div>
-                        </div>
                         @include('errors')
-                    </form>
+                    
             </div>
         </div>
-        {{-- <footer class="card-footer">
-            <a href="#" class="card-footer-item has-success-text">Save Project</a>
-        </footer> --}}
+        <footer class="card-footer">
+            <div class="card-footer-item">
+                <button type="submit" class="button is-medium some-space is-success">Save</button>
+                <a href="/home" class="button is-medium some-space is-info">Cancel</a>
+            </div>
+        </footer>
+    </form>
     </div>
 @endsection
