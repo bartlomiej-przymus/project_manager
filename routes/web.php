@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'ProjectsController@index');
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('projects', 'ProjectsController');
+
+Route::post('/projects/{project}/task/{task}', 'ProjectTasksController@store');
+Route::delete('/projects/{project}/task/{task}', 'ProjectTasksController@destroy');
+
+//flipping tasks completed / not completed
+Route::patch('/projects/task/{task}','ProjectTasksController@update');
+
