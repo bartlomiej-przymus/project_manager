@@ -13,20 +13,26 @@
         @if ($project->tasks->count())
             <div class="content box">
                 @foreach ($project->tasks as $task)
-                    <form action="/projects/{{$task->project_id}}/task/{{$task->id}}" method="POST">
+                {{-- What action should be here? this is to update checkbox so needs task id that gets updated --}}
+                    <form action="" method="POST">
                         @if ($task->completed)
                             @method('DELETE')
                         @endif
                         @csrf
-                        <label for="completed" class="checkbox {{$task->completed ? 'is-complete has-text-success' : 'has-text-danger'}}">
-                            <input type="checkbox" name="completed" onChange="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
-                            {{ $task->description }}
-                        </label>
+                        <div class="field is-horizontal">
+                            <div class="control">
+                                <label for="completed" class="checkbox {{$task->completed ? 'is-complete has-text-success' : 'has-text-danger'}}">
+                                    <input type="checkbox" name="completed" onChange="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
+                                    {{ $task->description }}
+                                </label>
+                            </div>
+                        {{-- </div> --}}
                     </form>
-                    <form action="/projects/{{$task->project_id}}/tasks/{{$task->id}}" method="POST">
+                    {{-- This is to delete particular task altogether from project --}}
+                    <form action="/task/{{$task->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <div class="field">
+                        {{-- <div class="field"> --}}
                             <div class="control">
                                 <button type="submit" class="delete"></button>
                             </div>
