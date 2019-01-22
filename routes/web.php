@@ -22,7 +22,7 @@ Route::get('/home', 'ProjectsController@index');
 Route::resource('projects', 'ProjectsController');
 
 //Creating Tasks
-//Route::post('/projects/{project}/tasks/{task}', 'ProjectTasksController@store');
+Route::post('/projects/{project}/task', 'ProjectTasksController@store');
 Route::delete('/task/{task}', 'ProjectTasksController@destroy');
 
 //flipping tasks completed / not completed

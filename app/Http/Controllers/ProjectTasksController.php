@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class ProjectTasksController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Project $project)
     {
-        //
+        Task::create([
+            'description' => $request->description,
+            'completed' => false,
+            'project_id' => $project->id,
+            'updated_at' => now(),
+            'created_at' => now()
+        ]);
+        return back();
     }
 
     public function update(Request $request, Task $task)
@@ -20,6 +27,7 @@ class ProjectTasksController extends Controller
 
     public function destroy(Task $task)
     {
+        dd($task->project_id);
         $task->delete();
         return back();
     }

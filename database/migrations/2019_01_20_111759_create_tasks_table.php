@@ -17,9 +17,9 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->boolean('completed')->default(false);
             $table->string('description');
-            $table->unsignedInteger('project_id');
+            $table->integer('project_id')->unsigned();
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('project-id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 

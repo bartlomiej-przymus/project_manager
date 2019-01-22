@@ -33,7 +33,7 @@
                         @csrf
                         @method('DELETE')
                         {{-- <div class="field"> --}}
-                            <div class="control">
+                            <div class="control delete-icon">
                                 <button type="submit" class="delete"></button>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
             </div>
         @endif
         <div class="content box">
-            <form action="/projects/{{$project->id}}/tasks" method="POST">
+            <form action="/projects/{{ $project->id }}/task" method="POST">
                 @csrf
                 <div class="field">
                     <label for="description" class="label">New Task</label>
