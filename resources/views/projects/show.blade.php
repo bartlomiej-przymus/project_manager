@@ -13,11 +13,8 @@
         @if ($project->tasks->count())
             <div class="content box">
                 @foreach ($project->tasks as $task)
-                {{-- What action should be here? this is to update checkbox so needs task id that gets updated --}}
-                    <form action="" method="POST">
-                        @if ($task->completed)
-                            @method('DELETE')
-                        @endif
+                    <form action="/taskstatus/{{ $task->id }}" method="POST">
+                        @method('PATCH')
                         @csrf
                         <div class="field is-horizontal">
                             <div class="control">
@@ -26,17 +23,15 @@
                                     {{ $task->description }}
                                 </label>
                             </div>
-                        {{-- </div> --}}
                     </form>
                     {{-- This is to delete particular task altogether from project --}}
                     <form action="/task/{{$task->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        {{-- <div class="field"> --}}
                             <div class="control delete-icon">
                                 <button type="submit" class="delete"></button>
                             </div>
-                        </div>
+                        </div>  {{-- field is-horizontal ends here --}}
                     </form>
                 @endforeach
             </div>

@@ -26,5 +26,5 @@ Route::post('/projects/{project}/task', 'ProjectTasksController@store');
 Route::delete('/task/{task}', 'ProjectTasksController@destroy');
 
 //flipping tasks completed / not completed
-Route::patch('/projects/tasks/{task}','ProjectTasksController@update');
+Route::patch('/taskstatus/{task}','ProjectTasksController@update');
 

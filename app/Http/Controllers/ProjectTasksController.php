@@ -22,12 +22,21 @@ class ProjectTasksController extends Controller
 
     public function update(Request $request, Task $task)
     {
-        //
+        if($request->completed != null){
+            $task->completed = true;
+            $task->save();
+            return back();
+        } else {
+            $task->completed = false;
+            $task->save();
+            return back();
+        }
+                            
+        
     }
 
     public function destroy(Task $task)
     {
-        dd($task->project_id);
         $task->delete();
         return back();
     }
