@@ -8,7 +8,16 @@
     <div class="card-content">
         <h6 class="is-small has-text-grey">Description</h6>
         <div class="content box">{{$project->description}}</div>
-        <h6 class="is-small has-text-grey">Tasks</h6>
+        <h6 class="is-small has-text-grey">Settings</h6>
+        <p>
+            <span class="has-text-grey">
+                tasks: @if (in_array('tasks', json_decode($project->settings))) on @else off @endif
+                budget: @if (in_array('budget', json_decode($project->settings))) on @else off @endif
+                scheduler: @if (in_array('scheduler', json_decode($project->settings))) on @else off @endif
+                notifications: @if (in_array('notifications', json_decode($project->settings))) on @else off @endif
+            </span>
+        </p>
+        <br>
         {{-- Adding tasks form here: --}}
         @if ($project->tasks->count())
             <div class="content box">

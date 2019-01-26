@@ -32,7 +32,7 @@
                         <div class="level-left">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="settings" id="tasks" type="checkbox" value="tasks" checked>
+                                    <input name="tasks" id="tasks" type="checkbox" value="on" checked>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Tasks
@@ -41,7 +41,7 @@
                         <div class="level-left">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="settings" id="tasks" type="checkbox" value="budget" checked>
+                                    <input name="budget" id="tasks" type="checkbox" value="on" checked>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Budget
@@ -50,7 +50,7 @@
                         <div class="level-left">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="settings" id="tasks" type="checkbox" value="scheduler" checked>
+                                    <input name="scheduler" id="tasks" type="checkbox" value="on" checked>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Scheduler
@@ -59,7 +59,7 @@
                         <div class="level-item">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="settings" id="tasks" type="checkbox" value="notification" checked>
+                                    <input name="notifications" id="tasks" type="checkbox" value="on" checked>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Notifications:

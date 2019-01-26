@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -20,13 +21,16 @@ class ProjectsController extends Controller
 
     public function store(Request $request)
     {
+        $jsonSettings = json_encode($request->settings);
+        //dd($jsonSettings);
         $attributes = $this->validateProject();
         $attributes['owner_id'] = auth()->id();
+        $attributes['settings'] = $jsonSettings;
         Project::create($attributes);
         return redirect('/home');
     }
 
-    public function show(Project $project)
+    public function show(Project $project, Task $task)
     {
         return view('projects.show', compact('project'));
     }
