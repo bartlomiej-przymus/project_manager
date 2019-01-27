@@ -69,3 +69,7 @@
   .some-space {
     margin: 5px;
   }
+  
+  .space-top {
+    margin-top: 10px;
+  }

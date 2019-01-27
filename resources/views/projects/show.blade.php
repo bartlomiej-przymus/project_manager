@@ -9,14 +9,18 @@
         <h6 class="is-small has-text-grey">Description</h6>
         <div class="content box">{{$project->description}}</div>
         <h6 class="is-small has-text-grey">Settings</h6>
-        <p>
-            <span class="has-text-grey">
-                tasks: @if (in_array('tasks', json_decode($project->settings))) on @else off @endif
-                budget: @if (in_array('budget', json_decode($project->settings))) on @else off @endif
-                scheduler: @if (in_array('scheduler', json_decode($project->settings))) on @else off @endif
-                notifications: @if (in_array('notifications', json_decode($project->settings))) on @else off @endif
-            </span>
-        </p>
+            <div class="field is-grouped is-grouped-multiline space-top">
+                @foreach ($settings as $sName => $sValue)
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">{{ $sName }}</span>
+                            <span class="tag @if($sValue) is-success @else is-danger @endif">
+                                @if ($sValue) on @else off @endif
+                            </span>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         <br>
         {{-- Adding tasks form here: --}}
         @if ($project->tasks->count())

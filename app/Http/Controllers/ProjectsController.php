@@ -21,18 +21,24 @@ class ProjectsController extends Controller
 
     public function store(Request $request)
     {
-        $jsonSettings = json_encode($request->settings);
-        //dd($jsonSettings);
+        $settings = $request->settings;
         $attributes = $this->validateProject();
         $attributes['owner_id'] = auth()->id();
-        $attributes['settings'] = $jsonSettings;
+        $settingsArray = [
+            'tasks' => in_array('tasks', $settings) ? true : false,
+            'budget' => in_array('budget', $settings) ? true : false,
+            'scheduler' => in_array('scheduler', $settings) ? true : false,
+            'notifications' => in_array('notifications', $settings) ? true : false
+        ];
+        $attributes['settings'] = json_encode($settingsArray);
         Project::create($attributes);
         return redirect('/home');
     }
 
     public function show(Project $project, Task $task)
     {
-        return view('projects.show', compact('project'));
+        $settings = json_decode($project->settings, true);
+        return view('projects.show', compact('project'), compact('settings'));
     }
 
     public function edit(Project $project)
@@ -43,7 +49,7 @@ class ProjectsController extends Controller
     public function update(Request $request, Project $project)
     {
         $project->update($this->validateProject());
-        return redirect('/home');
+        return redirect('/projects/'.$project->id);
     }
 
     public function destroy(Project $project)
