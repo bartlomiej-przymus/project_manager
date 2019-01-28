@@ -32,7 +32,7 @@
                         <div class="level-left">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="tasks" id="tasks" type="checkbox" value="on" checked>
+                                    <input name="settings[]" id="tasks" type="checkbox" value="tasks" @if ($settings['tasks']) checked @else @endif>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Tasks
@@ -41,7 +41,7 @@
                         <div class="level-left">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="budget" id="tasks" type="checkbox" value="on" checked>
+                                    <input name="settings[]" id="budget" type="checkbox" value="budget" @if ($settings['budget']) checked @else @endif>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Budget
@@ -50,7 +50,7 @@
                         <div class="level-left">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="scheduler" id="tasks" type="checkbox" value="on" checked>
+                                    <input name="settings[]" id="scheduler" type="checkbox" value="scheduler" @if ($settings['scheduler']) checked @else @endif>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Scheduler
@@ -59,7 +59,7 @@
                         <div class="level-item">
                             <div class="control">
                                 <label class="switch">
-                                    <input name="notifications" id="tasks" type="checkbox" value="on" checked>
+                                    <input name="settings[]" id="notifications" type="checkbox" value="notifications" @if ($settings['notifications']) checked @else @endif>
                                     <span class="slider round"></span>
                                 </label>
                                 - Enable Notifications:

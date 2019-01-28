@@ -21,9 +21,9 @@
                     </div>
                 @endforeach
             </div>
-        <br>
         {{-- Adding tasks form here: --}}
         @if ($project->tasks->count())
+            <h6 class="is-small has-text-grey">Tasks</h6>
             <div class="content box">
                 @foreach ($project->tasks as $task)
                     <form action="/taskstatus/{{ $task->id }}" method="POST">

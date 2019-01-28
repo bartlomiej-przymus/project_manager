@@ -21,16 +21,9 @@ class ProjectsController extends Controller
 
     public function store(Request $request)
     {
-        $settings = $request->settings;
         $attributes = $this->validateProject();
         $attributes['owner_id'] = auth()->id();
-        $settingsArray = [
-            'tasks' => in_array('tasks', $settings) ? true : false,
-            'budget' => in_array('budget', $settings) ? true : false,
-            'scheduler' => in_array('scheduler', $settings) ? true : false,
-            'notifications' => in_array('notifications', $settings) ? true : false
-        ];
-        $attributes['settings'] = json_encode($settingsArray);
+        $attributes['settings'] = getSettings($request);
         Project::create($attributes);
         return redirect('/home');
     }
@@ -43,12 +36,15 @@ class ProjectsController extends Controller
 
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $settings = json_decode($project->settings, true);
+        return view('projects.edit', compact('project'), compact('settings'));
     }
 
     public function update(Request $request, Project $project)
     {
-        $project->update($this->validateProject());
+        $attributes = $this->validateProject();
+        $attributes['settings'] = $this->getSettings($request);
+        $project->update($attributes);
         return redirect('/projects/'.$project->id);
     }
 
@@ -56,6 +52,18 @@ class ProjectsController extends Controller
     {
         $project->delete();
         return redirect('/home');
+    }
+
+    protected function getSettings($request)
+    {
+        $settings = $request->settings;
+        $settingsArray = [
+            'tasks' => in_array('tasks', $settings) ? true : false,
+            'budget' => in_array('budget', $settings) ? true : false,
+            'scheduler' => in_array('scheduler', $settings) ? true : false,
+            'notifications' => in_array('notifications', $settings) ? true : false
+        ];
+        return json_encode($settingsArray);
     }
 
     protected function validateProject()
