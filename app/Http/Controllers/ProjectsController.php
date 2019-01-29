@@ -23,7 +23,7 @@ class ProjectsController extends Controller
     {
         $attributes = $this->validateProject();
         $attributes['owner_id'] = auth()->id();
-        $attributes['settings'] = getSettings($request);
+        $attributes['settings'] = $this->getSettings($request);
         Project::create($attributes);
         return redirect('/home');
     }
